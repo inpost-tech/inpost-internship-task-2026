@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InPost — Internship Assignments 2026</title>
+<style>
+:root {
+  --yellow:  #FFCC05;
+  --dark:    #1D1D1D;
+  --grey:    #767676;
+  --teal:    #5398A8;
+  --light:   #F7F7F7;
+  --font:    system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:    'SF Mono', 'Fira Code', 'Courier New', monospace;
+  --width:   740px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--dark);
+  background: #fff;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+header { background: var(--dark); }
+.header-bar { height: 4px; background: var(--yellow); }
+.header-inner {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 24px 40px 20px;
+}
+.logo { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--yellow); display: block; margin-bottom: 4px; }
+.doc-title { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.7); display: block; }
+.doc-meta { max-width: var(--width); margin: 0 auto; padding: 0 40px 16px; font-size: 11.5px; color: rgba(255,255,255,0.35); }
+
+/* ── Main ────────────────────────────────────────────────────────── */
+main { max-width: var(--width); margin: 48px auto 0; padding: 0 40px 60px; }
+
+/* ── Typography ─────────────────────────────────────────────────── */
+h1 { font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 12px; }
+h2 {
+  font-size: 17px; font-weight: 700;
+  margin-top: 52px; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+h2::before { content: ''; display: inline-block; width: 3px; height: 1em; background: var(--yellow); flex-shrink: 0; }
+h3 { font-size: 14.5px; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
+p { margin-bottom: 14px; }
+a { color: var(--teal); text-underline-offset: 3px; }
+strong { font-weight: 600; }
+ul, ol { padding-left: 22px; margin-bottom: 14px; }
+li { margin-bottom: 5px; }
+
+hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
+
+/* ── Callouts ────────────────────────────────────────────────────── */
+.note, .warn, .tip {
+  padding: 12px 16px; margin-bottom: 18px;
+  font-size: 13.5px; line-height: 1.55;
+  border-radius: 0 3px 3px 0;
+}
+.note { background: #F0F6F8; border-left: 3px solid var(--teal); }
+.warn { background: #FFFBE0; border-left: 3px solid var(--yellow); }
+.tip  { background: #F0F8F0; border-left: 3px solid #4CAF50; }
+
+/* ── Track cards ─────────────────────────────────────────────────── */
+.track-cards {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin: 24px 0 28px;
+}
+.track-card {
+  border: 1px solid #DCDCDC; border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+  text-decoration: none; color: inherit;
+  display: block;
+}
+.track-card:hover { border-color: var(--yellow); }
+.track-card-header {
+  background: var(--dark); color: #fff;
+  padding: 16px 20px;
+}
+.track-card-header .track-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+.track-card-header h3 {
+  margin: 0; color: #fff; font-size: 16px; font-weight: 700;
+}
+.track-card-header .track-subtitle {
+  font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px;
+}
+.track-card-body {
+  padding: 16px 20px;
+  font-size: 13.5px; color: #555;
+}
+.track-card-body p { margin: 0 0 12px; }
+.track-card-body p:last-child { margin: 0; }
+.track-link {
+  display: inline-block;
+  font-size: 13px; font-weight: 700;
+  color: var(--teal); text-decoration: none;
+}
+.track-link:hover { text-decoration: underline; }
+
+/* ── Timeline ────────────────────────────────────────────────────── */
+.timeline {
+  border: 1px solid #DCDCDC; border-radius: 4px;
+  overflow: hidden; margin-bottom: 24px;
+}
+.timeline-header {
+  background: var(--dark); color: #fff;
+  padding: 11px 20px; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.timeline-body { padding: 0; }
+.timeline-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 14px 20px;
+  border-bottom: 1px solid #F0F0F0;
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-date {
+  font-size: 11px; font-weight: 700;
+  background: var(--light); color: var(--grey);
+  padding: 3px 10px; border-radius: 2px;
+  white-space: nowrap; margin-top: 1px;
+  min-width: 120px; text-align: center;
+}
+.timeline-desc { font-size: 13.5px; }
+.timeline-desc strong { display: block; margin-bottom: 1px; }
+.timeline-desc p { margin: 0; color: #555; font-size: 12.5px; }
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+footer {
+  max-width: var(--width); margin: 48px auto 40px;
+  padding: 16px 40px 0; border-top: 1px solid #EBEBEB;
+  font-size: 12px; color: var(--grey);
+  display: flex; justify-content: space-between;
+}
+.footer-brand { font-weight: 700; color: var(--dark); }
+
+/* ── Print ───────────────────────────────────────────────────────── */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  @page { size: A4; margin: 14mm 18mm; }
+  body { font-size: 13px; }
+  main { max-width: 100%; margin: 0; padding: 0 0 40px; }
+  h2, h3 { break-after: avoid; }
+  .track-cards { break-inside: avoid; }
+  .timeline { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-bar"></div>
+  <div class="header-inner">
+    <span class="logo">InPost</span>
+    <span class="doc-title">Internship Program 2026 — Technical Assignments</span>
+  </div>
+  <div class="doc-meta">InPost Technology &middot; 2026</div>
+</header>
+
+<main>
+
+<h1>Internship Technical Assignments</h1>
+<p style="font-size:15px; color:#444; margin-bottom:6px;">Welcome to InPost's internship recruitment. We've prepared two assignment tracks — one focused on software development, the other on quality assurance.</p>
+<p style="font-size:13.5px; color:var(--grey);">You can choose the track that best matches your interests, or complete both if you want to showcase a wider skill set.</p>
+
+<div class="tip"><strong>You don't have to pick just one.</strong> Completing both tracks is optional but gives us a broader picture of your abilities. If you choose to do both, each assignment will be evaluated independently.</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>Choose your track</h2>
+
+<div class="track-cards">
+  <a class="track-card" href="dev/">
+    <div class="track-card-header">
+      <span class="track-icon">⚙️</span>
+      <h3>Software Development</h3>
+      <div class="track-subtitle">Backend · Full-stack · Data</div>
+    </div>
+    <div class="track-card-body">
+      <p>An open-ended task built around InPost's real parcel locker API. You define the problem, pick the tech stack, and build something useful.</p>
+      <span class="track-link">Open assignment →</span>
+    </div>
+  </a>
+  <a class="track-card" href="qa/">
+    <div class="track-card-header">
+      <span class="track-icon">🔍</span>
+      <h3>Quality Assurance</h3>
+      <div class="track-subtitle">Manual testing · Automation · Playwright</div>
+    </div>
+    <div class="track-card-body">
+      <p>Explore a web application, find bugs, write a test report, and optionally tackle automation tasks using Playwright.</p>
+      <span class="track-link">Open assignment →</span>
+    </div>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>Timeline</h2>
+
+<div class="timeline">
+  <div class="timeline-header">Key dates</div>
+  <div class="timeline-body">
+    <div class="timeline-item">
+      <span class="timeline-date">[DATE]</span>
+      <div class="timeline-desc">
+        <strong>Assignments published</strong>
+        <p>Both tracks are available. Start working whenever you're ready.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-date">[DATE]</span>
+      <div class="timeline-desc">
+        <strong>Submission deadline</strong>
+        <p>Send us your GitHub repository link(s) by the end of this day.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <span class="timeline-date">[DATE]</span>
+      <div class="timeline-desc">
+        <strong>Results communicated</strong>
+        <p>We'll review every submission and get back to you — regardless of the outcome.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>General information</h2>
+
+<h3>Submission</h3>
+<p>Your work should be published in a <strong>public GitHub repository</strong>. When you're done, send us the link to:</p>
+<p style="font-weight:700;">[SUBMISSION EMAIL / FORM — TO BE ADDED]</p>
+
+<h3>AI tools</h3>
+<p>Using AI tools (ChatGPT, Claude, Copilot, Cursor, etc.) is fully allowed and encouraged. You're responsible for every line you submit — be ready to explain your reasoning in a follow-up conversation.</p>
+
+<h3>Evaluation</h3>
+<p>We review every submission. We're not just looking at technical skills — we care about how you think, how you communicate, and how you approach problems that aren't perfectly defined. Candidates with the strongest submissions will be invited to the next stage.</p>
+
+<h3>Questions?</h3>
+<p>If something is genuinely broken or unclear about the assignments, contact us at: <strong>[CONTACT EMAIL — TO BE ADDED]</strong></p>
+
+<hr>
+<p style="color:var(--grey); font-size:13.5px;">Good luck — we're looking forward to seeing what you come up with.</p>
+
+</main>
+
+<footer>
+  <span class="footer-brand">InPost Technology</span>
+  <span>Internship Assignments &middot; 2026</span>
+</footer>
+
+</body>
+</html>

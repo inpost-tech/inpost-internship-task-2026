@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InPost QA — Intern Assignment</title>
+<style>
+:root {
+  --yellow:  #FFCC05;
+  --dark:    #1D1D1D;
+  --grey:    #767676;
+  --teal:    #5398A8;
+  --light:   #F7F7F7;
+  --font:    system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:    'SF Mono', 'Fira Code', 'Courier New', monospace;
+  --width:   740px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--dark);
+  background: #fff;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+header { background: var(--dark); }
+.header-bar { height: 4px; background: var(--yellow); }
+.header-inner {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 24px 40px 20px;
+}
+.logo { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--yellow); display: block; margin-bottom: 4px; }
+.doc-title { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.7); display: block; }
+.doc-meta { max-width: var(--width); margin: 0 auto; padding: 0 40px 16px; font-size: 11.5px; color: rgba(255,255,255,0.35); }
+
+/* ── Main ────────────────────────────────────────────────────────── */
+main { max-width: var(--width); margin: 48px auto 0; padding: 0 40px 60px; }
+
+/* ── Typography ─────────────────────────────────────────────────── */
+h1 { font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 12px; }
+h2 {
+  font-size: 17px; font-weight: 700;
+  margin-top: 52px; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+h2::before { content: ''; display: inline-block; width: 3px; height: 1em; background: var(--yellow); flex-shrink: 0; }
+h3 { font-size: 14.5px; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
+p { margin-bottom: 14px; }
+a { color: var(--teal); text-underline-offset: 3px; }
+strong { font-weight: 600; }
+ul, ol { padding-left: 22px; margin-bottom: 14px; }
+li { margin-bottom: 5px; }
+
+/* ── Code ────────────────────────────────────────────────────────── */
+code { font-family: var(--mono); font-size: 12px; background: var(--light); padding: 2px 6px; border-radius: 3px; }
+pre {
+  background: var(--dark); color: #E0E0E0;
+  padding: 16px 20px; border-radius: 4px;
+  overflow-x: auto; margin-bottom: 20px;
+  font-size: 12.5px; line-height: 1.6;
+}
+pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+
+/* ── Callouts ────────────────────────────────────────────────────── */
+.note, .warn, .tip {
+  padding: 12px 16px; margin-bottom: 18px;
+  font-size: 13.5px; line-height: 1.55;
+  border-radius: 0 3px 3px 0;
+}
+.note { background: #F0F6F8; border-left: 3px solid var(--teal); }
+.warn { background: #FFFBE0; border-left: 3px solid var(--yellow); }
+.tip  { background: #F0F8F0; border-left: 3px solid #4CAF50; }
+
+hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
+
+/* ── Step cards ─────────────────────────────────────────────────── */
+.step-card {
+  border: 1px solid #DCDCDC;
+  border-radius: 4px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.step-header {
+  background: var(--dark); color: #fff;
+  padding: 12px 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+.step-number {
+  background: var(--yellow); color: var(--dark);
+  font-size: 11px; font-weight: 700;
+  padding: 3px 9px; border-radius: 2px;
+  white-space: nowrap;
+}
+.step-header h3 { margin: 0; color: #fff; font-size: 15px; font-weight: 700; }
+.step-body { padding: 20px 22px; }
+.step-body > *:last-child { margin-bottom: 0; }
+
+/* ── Task list ───────────────────────────────────────────────────── */
+.task-list { list-style: none; padding: 0; margin: 0; }
+.task-item {
+  display: flex; gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #F0F0F0;
+}
+.task-item:last-child { border-bottom: none; }
+.task-num {
+  font-size: 11px; font-weight: 700;
+  background: var(--light); color: var(--grey);
+  padding: 2px 8px; border-radius: 2px;
+  white-space: nowrap; height: fit-content;
+  margin-top: 2px;
+}
+.task-info { flex: 1; }
+.task-info strong { display: block; margin-bottom: 2px; }
+.task-info p { margin: 0; font-size: 13.5px; color: #555; }
+.task-pts {
+  font-size: 11px; font-weight: 700;
+  color: var(--grey); white-space: nowrap;
+  padding-top: 3px;
+}
+
+/* ── Score scale ─────────────────────────────────────────────────── */
+.score-scale {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin: 12px 0 6px;
+}
+.score-pill {
+  padding: 4px 12px; border-radius: 2px;
+  font-size: 12px; font-weight: 600;
+}
+.score-pill.s0 { background: #F0F0F0; color: #888; }
+.score-pill.s1 { background: #E8F4E8; color: #236E23; }
+.score-pill.s3 { background: #E5EEFF; color: #1A47A8; }
+.score-pill.s5 { background: #F0E8FF; color: #6028A8; }
+
+/* ── Report example ──────────────────────────────────────────────── */
+.report-example {
+  border: 1px solid #E0E0E0; border-radius: 3px;
+  overflow: hidden; margin-bottom: 16px;
+}
+.report-example-header {
+  background: var(--light);
+  padding: 6px 14px;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  color: var(--grey);
+}
+.report-example pre {
+  margin: 0; border-radius: 0;
+  font-size: 12px;
+}
+
+/* ── Checklist ───────────────────────────────────────────────────── */
+.checklist { list-style: none; padding: 0; margin-bottom: 14px; }
+.checklist li {
+  padding: 5px 0 5px 26px;
+  position: relative;
+  border-bottom: 1px solid #F5F5F5;
+  font-size: 13.5px;
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: '→';
+  position: absolute; left: 4px;
+  color: var(--yellow); font-weight: 700;
+}
+
+/* ── Submit box ──────────────────────────────────────────────────── */
+.submit-box {
+  background: var(--dark); color: #fff;
+  border-radius: 4px; padding: 24px 28px;
+  margin-top: 32px;
+}
+.submit-box h3 { color: var(--yellow); margin-top: 0; margin-bottom: 12px; }
+.submit-box p { color: rgba(255,255,255,0.8); margin-bottom: 8px; }
+.submit-box .submit-detail { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 12px; }
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+footer {
+  max-width: var(--width); margin: 48px auto 40px;
+  padding: 16px 40px 0; border-top: 1px solid #EBEBEB;
+  font-size: 12px; color: var(--grey);
+  display: flex; justify-content: space-between;
+}
+.footer-brand { font-weight: 700; color: var(--dark); }
+
+/* ── Print ───────────────────────────────────────────────────────── */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  @page { size: A4; margin: 14mm 18mm; }
+  body { font-size: 13px; }
+  main { max-width: 100%; margin: 0; padding: 0 0 40px; }
+  .step-card { break-inside: auto; }
+  .step-header { break-after: avoid; }
+  h2, h3 { break-after: avoid; }
+  .report-example { break-inside: avoid; }
+  .submit-box { break-inside: avoid; }
+  pre { border: 1px solid #ddd; color: var(--dark); background: var(--light); }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-bar"></div>
+  <div class="header-inner">
+    <span class="logo">InPost</span>
+    <span class="doc-title">QA Internship — Technical Assignment</span>
+  </div>
+  <div class="doc-meta">InPost UK Web Team &middot; 2026</div>
+</header>
+
+<main>
+
+<h1>QA Technical Assignment</h1>
+<p style="font-size:15px; color:#444; margin-bottom:6px;">Welcome to the InPost QA internship assignment. You'll explore a real web application, report what you find, and optionally write automated tests against it.</p>
+<p style="font-size:13.5px; color:var(--grey);">There's no single correct answer here. We're looking at how you think, how you communicate, and how you approach problems — not just whether you know the right syntax.</p>
+
+<div class="tip"><strong>AI tools are fully allowed</strong> — ChatGPT, Claude, Copilot, Cursor, anything you use day to day. You're responsible for every line you submit, so be ready to explain your reasoning.</div>
+
+<!-- Scoring info -->
+<div style="border: 1px solid #DCDCDC; border-radius: 4px; overflow: hidden; margin-bottom: 28px;">
+  <div style="background: var(--dark); color: #fff; padding: 11px 20px; font-size: 13px; font-weight: 700; letter-spacing: 0.2px;">How this assignment is scored</div>
+  <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 12px;">
+    <div style="display: flex; gap: 16px; align-items: flex-start;">
+      <div style="background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 2px; white-space: nowrap; margin-top: 1px;">Part 1</div>
+      <div style="font-size: 13.5px;">
+        <strong>Manual testing</strong> — find bugs in the app and write them up in <code>test-report.md</code>. The more bugs you find and the clearer your descriptions, the higher your score.
+      </div>
+    </div>
+    <div style="display: flex; gap: 16px; align-items: flex-start;">
+      <div style="background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 2px; white-space: nowrap; margin-top: 1px;">Part 2</div>
+      <div style="font-size: 13.5px;">
+        <strong>Automation tasks</strong> — six tasks, all optional. Each task is scored 0 / 1 / 3 / 5 based on quality. Do as many as you can — a solid attempt at fewer tasks beats a rushed attempt at all of them.
+      </div>
+    </div>
+    <p style="font-size: 13px; color: var(--grey); margin: 0; padding-top: 4px; border-top: 1px solid #F0F0F0;">
+      We review every submission. <strong style="color: var(--dark);">Candidates with the highest scores will be contacted for the next stage.</strong> You'll hear back from us regardless of the outcome.
+    </p>
+  </div>
+</div>
+
+<hr style="margin: 32px 0;">
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>Prerequisites</h2>
+
+<p>Make sure you have the following installed before you start.</p>
+
+<ul>
+  <li><strong>Node.js 18+</strong> — <a href="https://nodejs.org">nodejs.org</a> &nbsp;·&nbsp; download the <strong>LTS</strong> version</li>
+  <li><strong>Git</strong> — <a href="https://git-scm.com">git-scm.com</a></li>
+  <li><strong>Code editor</strong> — VS Code recommended: <a href="https://code.visualstudio.com">code.visualstudio.com</a></li>
+  <li><strong>GitHub account</strong> — <a href="https://github.com">github.com</a> &nbsp;·&nbsp; you'll need one to submit your work</li>
+</ul>
+
+<p>To verify Node.js is installed, run in your terminal:</p>
+<pre><code>node --version   # should print v18.x.x or higher
+npm --version    # should print 9.x.x or higher</code></pre>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>Step-by-step guide</h2>
+
+<!-- Step 1 -->
+<div class="step-card">
+  <div class="step-header">
+    <span class="step-number">Step 1</span>
+    <h3>Set up the web application</h3>
+  </div>
+  <div class="step-body">
+    <p>Clone the InPost web app and run it locally.</p>
+    <pre><code>git clone [REPO_URL_HERE]
+cd inpost-qa-site
+npm install
+npm run dev</code></pre>
+    <p>Open your browser and go to <code>http://localhost:3000</code> — you should see the InPost homepage.</p>
+    <p><strong>Login credentials:</strong></p>
+    <ul>
+      <li>Email: <code>user@example.com</code></li>
+      <li>Password: <code>password12345</code></li>
+    </ul>
+    <div class="note">Keep this terminal window open. The app needs to be running for the rest of the assignment.</div>
+  </div>
+</div>
+
+<!-- Step 2 -->
+<div class="step-card">
+  <div class="step-header">
+    <span class="step-number">Step 2</span>
+    <h3>Set up your test project</h3>
+  </div>
+  <div class="step-body">
+    <p>Download the test project as a ZIP file — this will become your submission repository.</p>
+    <ol>
+      <li>Go to <strong>[PLAYWRIGHT_REPO_URL_HERE]</strong></li>
+      <li>Click <strong>Code → Download ZIP</strong></li>
+      <li>Extract the ZIP and rename the folder to <code>inpost-qa-firstname-lastname</code> (e.g. <code>inpost-qa-jan-kowalski</code>)</li>
+    </ol>
+    <p>Then install the dependencies and Playwright browsers:</p>
+    <pre><code>cd inpost-qa-jan-kowalski
+npm install
+npx playwright install</code></pre>
+    <p>Verify everything works:</p>
+    <pre><code>npx playwright test</code></pre>
+    <p>You should see <code>0 passed</code> or the runner starting without errors. If you see a browser open briefly — that's normal.</p>
+    <div class="note">The <code>tasks/</code> folder contains 6 task files, each with instructions inside. You don't need to do all of them — see Step 5.</div>
+  </div>
+</div>
+
+<!-- Step 3 -->
+<div class="step-card">
+  <div class="step-header">
+    <span class="step-number">Step 3</span>
+    <h3>Push your project to GitHub</h3>
+  </div>
+  <div class="step-body">
+    <p>Create a new <strong>public</strong> GitHub repository and push your project there. This is the link you'll submit at the end.</p>
+    <ol>
+      <li>Go to <a href="https://github.com">github.com</a> → click <strong>New repository</strong></li>
+      <li>Name it <code>inpost-qa-firstname-lastname</code> (e.g. <code>inpost-qa-jan-kowalski</code>)</li>
+      <li>Set visibility to <strong>Public</strong> → click <strong>Create repository</strong></li>
+    </ol>
+    <p>Initialise git in your project folder and push it to the repository you just created.</p>
+    <div class="note">You're working in your own repo — your work is private from other candidates. Commit and push regularly as you progress.</div>
+  </div>
+</div>
+
+<!-- Step 4 -->
+<div class="step-card">
+  <div class="step-header">
+    <span class="step-number">Step 4</span>
+    <h3>Explore the app and write your test report</h3>
+  </div>
+  <div class="step-body">
+    <p>Explore <code>http://localhost:3000</code> thoroughly — click around, try logging in, test edge cases. Focus on these three pages:</p>
+    <ul>
+      <li><code>/</code> — Home page</li>
+      <li><code>/login</code> — Login page</li>
+      <li><code>/profile</code> — Profile page (try visiting it both logged in and logged out)</li>
+    </ul>
+    <p>Write down everything you find that looks wrong, broken, or unexpected. This is your <strong>test report</strong>.</p>
+
+    <h3>Test report format</h3>
+    <p>Create a file called <code>test-report.md</code> in the root of your repo. Organise your findings by page. The exact format is up to you — but it should be clear enough that a developer could understand what to fix.</p>
+    <p>You can include screenshots — put them in a <code>screenshots/</code> folder and reference them in the report like this: <code>![description](screenshots/filename.png)</code>. A screenshot often says more than a paragraph of text.</p>
+
+    <div class="report-example">
+      <div class="report-example-header">test-report.md — example structure</div>
+      <pre><code># Test Report — Online Shop QA
+
+## Product page (/product)
+
+**[High]** "Add to cart" does nothing when no size is selected
+Clicking the Add to Cart button without choosing a size silently fails —
+no error message, no feedback, cart count stays the same.
+![No feedback on add to cart](screenshots/add-to-cart-silent.png)
+
+**[Medium]** Price shows as "£NaN" on initial page load
+Before any size option is selected, the price field shows "£NaN"
+instead of a default price or a prompt to select a size.
+
+**[Low]** Product thumbnails have no alt text
+All product images in the gallery are missing alt attributes.
+They appear as blank to screen readers and if images fail to load.
+
+---
+
+## Checkout page (/checkout)
+
+**[High]** Applying an invalid discount code shows no error
+Entering a made-up code and clicking Apply does nothing visible —
+no error, no confirmation. It's unclear whether the code was rejected.
+![Discount code no feedback](screenshots/discount-no-feedback.png)
+
+---
+
+## Order history page (/orders)
+
+**[Medium]** Order dates show as "undefined/undefined/undefined"
+All past orders display the date as "undefined/undefined/undefined"
+instead of the actual order date.</code></pre>
+    </div>
+
+    <p>Use severity labels that make sense to you — <strong>High</strong> for things that break core functionality, <strong>Medium</strong> for noticeable issues, <strong>Low</strong> for minor cosmetic problems.</p>
+    <div class="tip">The more specific you are, the better. "Something is broken" is less useful than "clicking the search button returns a 500 error message". You don't need to explain why it's broken — just describe what you see.</div>
+  </div>
+</div>
+
+<!-- Step 5 -->
+<div class="step-card">
+  <div class="step-header">
+    <span class="step-number">Step 5</span>
+    <h3>Automation tasks <span style="font-weight:400;font-size:13px;color:rgba(255,255,255,0.6);">— optional, all tasks earn points</span></h3>
+  </div>
+  <div class="step-body">
+    <p>The <code>tasks/</code> folder has 6 task files. <strong>All are optional</strong> — do as many as you can. Each task you complete earns points based on the quality of your solution.</p>
+
+    <div class="score-scale">
+      <span class="score-pill s0">0 pts — not attempted or doesn't run</span>
+      <span class="score-pill s1">1 pt — basic, works</span>
+      <span class="score-pill s3">3 pts — solid, well structured</span>
+      <span class="score-pill s5">5 pts — excellent</span>
+    </div>
+
+    <ul class="task-list">
+      <li class="task-item">
+        <span class="task-num">01</span>
+        <div class="task-info">
+          <strong>Login</strong>
+          <p>Write tests for the login flow. Test the happy path and error cases. Verify the user is actually logged in after a successful login — not just that the URL changed.</p>
+        </div>
+        <span class="task-pts">max 5 pts</span>
+      </li>
+      <li class="task-item">
+        <span class="task-num">02</span>
+        <div class="task-info">
+          <strong>God Test Refactor</strong>
+          <p>You're given a working but badly written test. Identify what's wrong with it and refactor it. The instructions are in the task file.</p>
+        </div>
+        <span class="task-pts">max 5 pts</span>
+      </li>
+      <li class="task-item">
+        <span class="task-num">03</span>
+        <div class="task-info">
+          <strong>Bad Selectors / Debug</strong>
+          <p>Six tests — some failing, some not. Find what's wrong with each one and fix it. One of them is the hardest to spot.</p>
+        </div>
+        <span class="task-pts">max 5 pts</span>
+      </li>
+      <li class="task-item">
+        <span class="task-num">04</span>
+        <div class="task-info">
+          <strong>Async Wait</strong>
+          <p>Write a stable test for the parcel tracking page at <code>/challenges/async</code>. The test must pass consistently across multiple runs — no hardcoded delays.</p>
+        </div>
+        <span class="task-pts">max 5 pts</span>
+      </li>
+      <li class="task-item">
+        <span class="task-num">05</span>
+        <div class="task-info">
+          <strong>Visual Testing</strong>
+          <p>Write a visual regression test for the locker details page at <code>/challenges/visual</code>. The data on this page changes on every load — you'll need to handle that.</p>
+        </div>
+        <span class="task-pts">max 5 pts</span>
+      </li>
+      <li class="task-item">
+        <span class="task-num">06</span>
+        <div class="task-info">
+          <strong>API Testing</strong>
+          <p>Write a full API test suite for the parcel endpoints. The documentation and a sandbox token are available at <code>/challenges/api-testing</code>.</p>
+        </div>
+        <span class="task-pts">max 5 pts</span>
+      </li>
+    </ul>
+
+    <div class="note" style="margin-top:16px;">If you're new to Playwright, start with <strong>Task 01</strong> — it's the most approachable. The <a href="https://playwright.dev/docs/intro">Playwright docs</a> are well written and the AI tools you already use can help you get started quickly.</div>
+  </div>
+</div>
+
+<!-- Step 6 -->
+<div class="step-card">
+  <div class="step-header">
+    <span class="step-number">Step 6</span>
+    <h3>Submit your work</h3>
+  </div>
+  <div class="step-body">
+    <p>When you're done, make sure your repository contains:</p>
+    <ul class="checklist">
+      <li><code>test-report.md</code> — your manual test findings, organised by page</li>
+      <li><code>tasks/</code> — task files with your solutions (even partial attempts are fine)</li>
+      <li><code>playwright.config.ts</code> — pointing to <code>http://localhost:3000</code></li>
+      <li><code>package.json</code></li>
+    </ul>
+
+    <p>Commit and push everything:</p>
+    <pre><code>git add .
+git commit -m "QA assignment submission"
+git push</code></pre>
+
+    <div class="submit-box">
+      <h3>Submit your GitHub link</h3>
+      <p>Send the URL of your repository to:</p>
+      <p><strong style="font-size:15px; color:#fff;">[SUBMISSION EMAIL / FORM — TO BE ADDED]</strong></p>
+      <p class="submit-detail">Deadline: <strong style="color:rgba(255,255,255,0.7);">[DATE — TO BE ADDED]</strong></p>
+      <p class="submit-detail" style="margin-top:8px;">Make sure the repository is <strong>Public</strong> so we can access it.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<hr>
+<h2>Questions?</h2>
+<p>If you have any technical issues setting up the project, contact us at: <strong>[CONTACT EMAIL — TO BE ADDED]</strong></p>
+<p style="color:var(--grey); font-size:13.5px;">Good luck — and remember, we're evaluating how you think, not just what you produce.</p>
+
+</main>
+
+<footer>
+  <span class="footer-brand">InPost Technology</span>
+  <span>QA Internship Assignment &middot; 2026</span>
+</footer>
+
+</body>
+</html>
