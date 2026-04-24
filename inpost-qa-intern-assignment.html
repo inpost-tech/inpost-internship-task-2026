@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InPost QA — Intern Assignment</title>
+<title>InPost QA Internship Assignment</title>
 <style>
 :root {
   --yellow:  #FFCC05;
@@ -35,8 +35,8 @@ header { background: var(--dark); }
   padding: 24px 40px 20px;
 }
 .logo { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--yellow); display: block; margin-bottom: 4px; }
-.doc-title { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.7); display: block; }
-.doc-meta { max-width: var(--width); margin: 0 auto; padding: 0 40px 16px; font-size: 11.5px; color: rgba(255,255,255,0.35); }
+.doc-title { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.84); display: block; }
+.doc-meta { max-width: var(--width); margin: 0 auto; padding: 0 40px 16px; font-size: 13px; color: rgba(255,255,255,0.7); }
 
 /* ── Main ────────────────────────────────────────────────────────── */
 main { max-width: var(--width); margin: 48px auto 0; padding: 0 40px 60px; }
@@ -51,7 +51,13 @@ h2 {
 h2::before { content: ''; display: inline-block; width: 3px; height: 1em; background: var(--yellow); flex-shrink: 0; }
 h3 { font-size: 14.5px; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
 p { margin-bottom: 14px; }
-a { color: var(--teal); text-underline-offset: 3px; }
+a { color: #0b5fc6; text-underline-offset: 3px; }
+a:hover { color: #084a9a; }
+a:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
 strong { font-weight: 600; }
 ul, ol { padding-left: 22px; margin-bottom: 14px; }
 li { margin-bottom: 5px; }
@@ -92,7 +98,7 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 }
 .step-number {
   background: var(--yellow); color: var(--dark);
-  font-size: 11px; font-weight: 700;
+  font-size: 12px; font-weight: 700;
   padding: 3px 9px; border-radius: 2px;
   white-space: nowrap;
 }
@@ -109,8 +115,8 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 }
 .task-item:last-child { border-bottom: none; }
 .task-num {
-  font-size: 11px; font-weight: 700;
-  background: var(--light); color: var(--grey);
+  font-size: 12px; font-weight: 700;
+  background: var(--light); color: #4f4f4f;
   padding: 2px 8px; border-radius: 2px;
   white-space: nowrap; height: fit-content;
   margin-top: 2px;
@@ -119,8 +125,8 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 .task-info strong { display: block; margin-bottom: 2px; }
 .task-info p { margin: 0; font-size: 13.5px; color: #555; }
 .task-pts {
-  font-size: 11px; font-weight: 700;
-  color: var(--grey); white-space: nowrap;
+  font-size: 12px; font-weight: 700;
+  color: #4f4f4f; white-space: nowrap;
   padding-top: 3px;
 }
 
@@ -131,9 +137,9 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 }
 .score-pill {
   padding: 4px 12px; border-radius: 2px;
-  font-size: 12px; font-weight: 600;
+  font-size: 13px; font-weight: 700;
 }
-.score-pill.s0 { background: #F0F0F0; color: #888; }
+.score-pill.s0 { background: #F0F0F0; color: #555; }
 .score-pill.s1 { background: #E8F4E8; color: #236E23; }
 .score-pill.s3 { background: #E5EEFF; color: #1A47A8; }
 .score-pill.s5 { background: #F0E8FF; color: #6028A8; }
@@ -146,9 +152,9 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 .report-example-header {
   background: var(--light);
   padding: 6px 14px;
-  font-size: 11px; font-weight: 700;
+  font-size: 12px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.5px;
-  color: var(--grey);
+  color: #4f4f4f;
 }
 .report-example pre {
   margin: 0; border-radius: 0;
@@ -178,13 +184,13 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 }
 .submit-box h3 { color: var(--yellow); margin-top: 0; margin-bottom: 12px; }
 .submit-box p { color: rgba(255,255,255,0.8); margin-bottom: 8px; }
-.submit-box .submit-detail { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 12px; }
+.submit-box .submit-detail { font-size: 13px; color: rgba(255,255,255,0.82); margin-top: 12px; }
 
 /* ── Footer ──────────────────────────────────────────────────────── */
 footer {
   max-width: var(--width); margin: 48px auto 40px;
   padding: 16px 40px 0; border-top: 1px solid #EBEBEB;
-  font-size: 12px; color: var(--grey);
+  font-size: 13px; color: #555;
   display: flex; justify-content: space-between;
 }
 .footer-brand { font-weight: 700; color: var(--dark); }
@@ -219,7 +225,7 @@ footer {
 
 <h1>QA Technical Assignment</h1>
 <p style="font-size:15px; color:#444; margin-bottom:6px;">Welcome to the InPost QA internship assignment. You'll explore a real web application, report what you find, and optionally write automated tests against it.</p>
-<p style="font-size:13.5px; color:var(--grey);">There's no single correct answer here. We're looking at how you think, how you communicate, and how you approach problems — not just whether you know the right syntax.</p>
+<p style="font-size:13.5px; color:#555;">There's no single correct answer here. We're looking at how you think, how you communicate, and how you approach problems — not just whether you know the right syntax.</p>
 
 <div class="tip"><strong>AI tools are fully allowed</strong> — ChatGPT, Claude, Copilot, Cursor, anything you use day to day. You're responsible for every line you submit, so be ready to explain your reasoning.</div>
 
@@ -228,18 +234,18 @@ footer {
   <div style="background: var(--dark); color: #fff; padding: 11px 20px; font-size: 13px; font-weight: 700; letter-spacing: 0.2px;">How this assignment is scored</div>
   <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 12px;">
     <div style="display: flex; gap: 16px; align-items: flex-start;">
-      <div style="background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 2px; white-space: nowrap; margin-top: 1px;">Part 1</div>
+      <div style="background: var(--yellow); color: var(--dark); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 2px; white-space: nowrap; margin-top: 1px;">Part 1</div>
       <div style="font-size: 13.5px;">
         <strong>Manual testing</strong> — find bugs in the app and write them up in <code>test-report.md</code>. The more bugs you find and the clearer your descriptions, the higher your score.
       </div>
     </div>
     <div style="display: flex; gap: 16px; align-items: flex-start;">
-      <div style="background: var(--yellow); color: var(--dark); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 2px; white-space: nowrap; margin-top: 1px;">Part 2</div>
+      <div style="background: var(--yellow); color: var(--dark); font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 2px; white-space: nowrap; margin-top: 1px;">Part 2</div>
       <div style="font-size: 13.5px;">
         <strong>Automation tasks</strong> — six tasks, all optional. Each task is scored 0 / 1 / 3 / 5 based on quality. Do as many as you can — a solid attempt at fewer tasks beats a rushed attempt at all of them.
       </div>
     </div>
-    <p style="font-size: 13px; color: var(--grey); margin: 0; padding-top: 4px; border-top: 1px solid #F0F0F0;">
+    <p style="font-size: 13px; color: #555; margin: 0; padding-top: 4px; border-top: 1px solid #F0F0F0;">
       We review every submission. <strong style="color: var(--dark);">Candidates with the highest scores will be contacted for the next stage.</strong> You'll hear back from us regardless of the outcome.
     </p>
   </div>
@@ -395,7 +401,7 @@ instead of the actual order date.</code></pre>
 <div class="step-card">
   <div class="step-header">
     <span class="step-number">Step 5</span>
-    <h3>Automation tasks <span style="font-weight:400;font-size:13px;color:rgba(255,255,255,0.6);">— optional, all tasks earn points</span></h3>
+    <h3>Automation tasks <span style="font-weight:400;font-size:13px;color:rgba(255,255,255,0.82);">— optional, all tasks earn points</span></h3>
   </div>
   <div class="step-body">
     <p>The <code>tasks/</code> folder has 6 task files. <strong>All are optional</strong> — do as many as you can. Each task you complete earns points based on the quality of your solution.</p>
@@ -496,7 +502,7 @@ git push</code></pre>
 <hr>
 <h2>Questions?</h2>
 <p>If you have any technical issues setting up the project, contact us at: <strong>[CONTACT EMAIL — TO BE ADDED]</strong></p>
-<p style="color:var(--grey); font-size:13.5px;">Good luck — and remember, we're evaluating how you think, not just what you produce.</p>
+<p style="color:#555; font-size:13.5px;">Good luck — and remember, we're evaluating how you think, not just what you produce.</p>
 
 </main>
 

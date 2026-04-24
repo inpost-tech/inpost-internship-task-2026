@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InPost Dev — Intern Assignment</title>
+<title>InPost Software Development Internship Assignment</title>
 <style>
 :root {
   --yellow:  #FFCC05;
@@ -35,8 +35,8 @@ header { background: var(--dark); }
   padding: 24px 40px 20px;
 }
 .logo { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--yellow); display: block; margin-bottom: 4px; }
-.doc-title { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.7); display: block; }
-.doc-meta { max-width: var(--width); margin: 0 auto; padding: 0 40px 16px; font-size: 11.5px; color: rgba(255,255,255,0.35); }
+.doc-title { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.84); display: block; }
+.doc-meta { max-width: var(--width); margin: 0 auto; padding: 0 40px 16px; font-size: 13px; color: rgba(255,255,255,0.7); }
 
 /* ── Main ────────────────────────────────────────────────────────── */
 main { max-width: var(--width); margin: 48px auto 0; padding: 0 40px 60px; }
@@ -51,7 +51,13 @@ h2 {
 h2::before { content: ''; display: inline-block; width: 3px; height: 1em; background: var(--yellow); flex-shrink: 0; }
 h3 { font-size: 14.5px; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
 p { margin-bottom: 14px; }
-a { color: var(--teal); text-underline-offset: 3px; }
+a { color: #0b5fc6; text-underline-offset: 3px; }
+a:hover { color: #084a9a; }
+a:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
 strong { font-weight: 600; }
 ul, ol { padding-left: 22px; margin-bottom: 14px; }
 li { margin-bottom: 5px; }
@@ -81,9 +87,9 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 /* ── Eval table ─────────────────────────────────────────────────── */
 .eval-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
 .eval-table th {
-  text-align: left; font-size: 11px; font-weight: 700;
+  text-align: left; font-size: 12px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.5px;
-  color: var(--grey); padding: 8px 12px;
+  color: #4f4f4f; padding: 8px 12px;
   border-bottom: 2px solid var(--dark);
 }
 .eval-table td {
@@ -104,7 +110,7 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
   padding: 14px 16px; font-size: 13.5px;
 }
 .idea-card strong { display: block; margin-bottom: 4px; font-size: 13px; }
-.idea-card p { margin: 0; color: #555; font-size: 12.5px; }
+.idea-card p { margin: 0; color: #3f3f3f; font-size: 13px; }
 
 /* ── Checklist ───────────────────────────────────────────────────── */
 .checklist { list-style: none; padding: 0; margin-bottom: 14px; }
@@ -129,7 +135,7 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 }
 .submit-box h3 { color: var(--yellow); margin-top: 0; margin-bottom: 12px; }
 .submit-box p { color: rgba(255,255,255,0.8); margin-bottom: 8px; }
-.submit-box .submit-detail { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 12px; }
+.submit-box .submit-detail { font-size: 13px; color: rgba(255,255,255,0.82); margin-top: 12px; }
 
 /* ── API box ─────────────────────────────────────────────────────── */
 .api-box {
@@ -143,7 +149,7 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 }
 .api-method {
   background: var(--yellow); color: var(--dark);
-  font-size: 10px; font-weight: 700; padding: 2px 8px;
+  font-size: 12px; font-weight: 700; padding: 2px 8px;
   border-radius: 2px; letter-spacing: 0.3px;
 }
 .api-box-body { padding: 16px 20px; }
@@ -154,7 +160,7 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 footer {
   max-width: var(--width); margin: 48px auto 40px;
   padding: 16px 40px 0; border-top: 1px solid #EBEBEB;
-  font-size: 12px; color: var(--grey);
+  font-size: 13px; color: #555;
   display: flex; justify-content: space-between;
 }
 .footer-brand { font-weight: 700; color: var(--dark); }
@@ -187,7 +193,7 @@ footer {
 
 <h1>Developer Technical Assignment</h1>
 <p style="font-size:15px; color:#444; margin-bottom:6px;">We'd love to get to know you better — not just your coding skills, but also how you think, communicate, and approach problems that don't come with a step-by-step manual.</p>
-<p style="font-size:13.5px; color:var(--grey);">There's no single correct solution. We want to see <strong>your</strong> interpretation, your decisions, and your ability to deliver something that works and makes sense.</p>
+<p style="font-size:13.5px; color:#555;">There's no single correct solution. We want to see <strong>your</strong> interpretation, your decisions, and your ability to deliver something that works and makes sense.</p>
 
 <div class="tip"><strong>AI tools are fully allowed</strong> — ChatGPT, Claude, Copilot, Cursor, anything you use day to day. But if an AI wrote your code, you should understand every line of it and be able to explain your decisions. We may ask.</div>
 
@@ -203,7 +209,7 @@ footer {
   </div>
   <div class="api-box-body">
     <p>Returns a paginated list of all InPost points across Europe — including location coordinates, address details, available functions, operating hours, locker availability, and more.</p>
-    <p style="color:var(--grey);">Explore the API yourself. The shape of the data should inform what you build.</p>
+    <p style="color:#555;">Explore the API yourself. The shape of the data should inform what you build.</p>
   </div>
 </div>
 
@@ -319,7 +325,7 @@ footer {
 <hr>
 <h2>Questions?</h2>
 <p>If you have any issues with the task, contact us at: <strong>[CONTACT EMAIL — TO BE ADDED]</strong></p>
-<p style="color:var(--grey); font-size:13.5px;">Good luck — we're looking forward to seeing what you come up with.</p>
+<p style="color:#555; font-size:13.5px;">Good luck — we're looking forward to seeing what you come up with.</p>
 
 </main>
 
