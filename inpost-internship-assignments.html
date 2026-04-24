@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InPost — Internship Assignments 2026</title>
+<title>InPost Internship Assignments 2026</title>
 <style>
 :root {
   --yellow:  #FFCC05;
@@ -35,8 +35,8 @@ header { background: var(--dark); }
   padding: 24px 40px 20px;
 }
 .logo { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--yellow); display: block; margin-bottom: 4px; }
-.doc-title { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.7); display: block; }
-.doc-meta { max-width: var(--width); margin: 0 auto; padding: 0 40px 16px; font-size: 11.5px; color: rgba(255,255,255,0.35); }
+.doc-title { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.84); display: block; }
+.doc-meta { max-width: var(--width); margin: 0 auto; padding: 0 40px 16px; font-size: 13px; color: rgba(255,255,255,0.7); }
 
 /* ── Main ────────────────────────────────────────────────────────── */
 main { max-width: var(--width); margin: 48px auto 0; padding: 0 40px 60px; }
@@ -51,7 +51,13 @@ h2 {
 h2::before { content: ''; display: inline-block; width: 3px; height: 1em; background: var(--yellow); flex-shrink: 0; }
 h3 { font-size: 14.5px; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
 p { margin-bottom: 14px; }
-a { color: var(--teal); text-underline-offset: 3px; }
+a { color: #0b5fc6; text-underline-offset: 3px; }
+a:hover { color: #084a9a; }
+a:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
 strong { font-weight: 600; }
 ul, ol { padding-left: 22px; margin-bottom: 14px; }
 li { margin-bottom: 5px; }
@@ -81,6 +87,11 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
   display: block;
 }
 .track-card:hover { border-color: var(--yellow); }
+.track-card:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 4px;
+  border-color: var(--yellow);
+}
 .track-card-header {
   background: var(--dark); color: #fff;
   padding: 16px 20px;
@@ -90,20 +101,21 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
   margin: 0; color: #fff; font-size: 16px; font-weight: 700;
 }
 .track-card-header .track-subtitle {
-  font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px;
+  font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 2px;
 }
 .track-card-body {
   padding: 16px 20px;
-  font-size: 13.5px; color: #555;
+  font-size: 13.5px; color: #3f3f3f;
 }
 .track-card-body p { margin: 0 0 12px; }
 .track-card-body p:last-child { margin: 0; }
 .track-link {
   display: inline-block;
   font-size: 13px; font-weight: 700;
-  color: var(--teal); text-decoration: none;
+  color: #0b5fc6; text-decoration: underline;
+  text-underline-offset: 3px;
 }
-.track-link:hover { text-decoration: underline; }
+.track-link:hover { color: #084a9a; }
 
 /* ── Timeline ────────────────────────────────────────────────────── */
 .timeline {
@@ -123,21 +135,21 @@ hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
 }
 .timeline-item:last-child { border-bottom: none; }
 .timeline-date {
-  font-size: 11px; font-weight: 700;
-  background: var(--light); color: var(--grey);
+  font-size: 12px; font-weight: 700;
+  background: var(--light); color: #4f4f4f;
   padding: 3px 10px; border-radius: 2px;
   white-space: nowrap; margin-top: 1px;
   min-width: 120px; text-align: center;
 }
 .timeline-desc { font-size: 13.5px; }
 .timeline-desc strong { display: block; margin-bottom: 1px; }
-.timeline-desc p { margin: 0; color: #555; font-size: 12.5px; }
+.timeline-desc p { margin: 0; color: #3f3f3f; font-size: 13px; }
 
 /* ── Footer ──────────────────────────────────────────────────────── */
 footer {
   max-width: var(--width); margin: 48px auto 40px;
   padding: 16px 40px 0; border-top: 1px solid #EBEBEB;
-  font-size: 12px; color: var(--grey);
+  font-size: 13px; color: #555;
   display: flex; justify-content: space-between;
 }
 .footer-brand { font-weight: 700; color: var(--dark); }
@@ -168,10 +180,9 @@ footer {
 <main>
 
 <h1>Internship Technical Assignments</h1>
-<p style="font-size:15px; color:#444; margin-bottom:6px;">Welcome to InPost's internship recruitment. We've prepared two assignment tracks — one focused on software development, the other on quality assurance.</p>
-<p style="font-size:13.5px; color:var(--grey);">You can choose the track that best matches your interests, or complete both if you want to showcase a wider skill set.</p>
+<p style="font-size:15px; color:#444; margin-bottom:24px;">Welcome to InPost's internship recruitment. We've prepared two assignment tracks — one focused on software development, the other on quality assurance.</p>
 
-<div class="tip"><strong>You don't have to pick just one.</strong> Completing both tracks is optional but gives us a broader picture of your abilities. If you choose to do both, each assignment will be evaluated independently.</div>
+<div class="tip"><strong>You don't have to pick just one.</strong> You can choose the track that best matches your interests, or complete both if you want to showcase a wider skill set. If you choose to do both, each assignment will be evaluated independently.</div>
 
 <!-- ═══════════════════════════════════════════════════════════════ -->
 <h2>Choose your track</h2>
@@ -179,9 +190,8 @@ footer {
 <div class="track-cards">
   <a class="track-card" href="dev/">
     <div class="track-card-header">
-      <span class="track-icon">⚙️</span>
       <h3>Software Development</h3>
-      <div class="track-subtitle">Backend · Full-stack · Data</div>
+      <div class="track-subtitle">Backend · Frontend · Full-stack · Data</div>
     </div>
     <div class="track-card-body">
       <p>An open-ended task built around InPost's real parcel locker API. You define the problem, pick the tech stack, and build something useful.</p>
@@ -190,9 +200,8 @@ footer {
   </a>
   <a class="track-card" href="qa/">
     <div class="track-card-header">
-      <span class="track-icon">🔍</span>
       <h3>Quality Assurance</h3>
-      <div class="track-subtitle">Manual testing · Automation · Playwright</div>
+      <div class="track-subtitle">Manual testing · Automated Testing</div>
     </div>
     <div class="track-card-body">
       <p>Explore a web application, find bugs, write a test report, and optionally tackle automation tasks using Playwright.</p>
@@ -248,7 +257,7 @@ footer {
 <p>If something is genuinely broken or unclear about the assignments, contact us at: <strong>[CONTACT EMAIL — TO BE ADDED]</strong></p>
 
 <hr>
-<p style="color:var(--grey); font-size:13.5px;">Good luck — we're looking forward to seeing what you come up with.</p>
+<p style="color:#555; font-size:13.5px;">Good luck — we're looking forward to seeing what you come up with.</p>
 
 </main>
 
