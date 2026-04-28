@@ -2,10 +2,11 @@ pages:
   stage: deploy
   image: alpine:latest
   script:
-    - mkdir -p public/dev public/qa
+    - mkdir -p public/dev public/qa public/readme-template
     - cp inpost-internship-assignments.html public/index.html
     - cp inpost-dev-intern-assignment.html public/dev/index.html
     - cp inpost-qa-intern-assignment.html public/qa/index.html
+    - cp readme-template/README.md public/readme-template/README.md
   artifacts:
     paths:
       - public
