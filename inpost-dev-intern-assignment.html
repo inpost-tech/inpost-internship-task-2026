@@ -1,336 +1,726 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>InPost Software Development Internship Assignment</title>
-<style>
-:root {
-  --yellow:  #FFCC05;
-  --dark:    #1D1D1D;
-  --grey:    #767676;
-  --teal:    #5398A8;
-  --light:   #F7F7F7;
-  --font:    system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --mono:    'SF Mono', 'Fira Code', 'Courier New', monospace;
-  --width:   740px;
-}
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>InPost Software Development Internship Assignment</title>
+        <style>
+            :root {
+                --yellow: #ffcc05;
+                --dark: #1d1d1d;
+                --grey: #767676;
+                --teal: #5398a8;
+                --light: #f7f7f7;
+                --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+                --mono: "SF Mono", "Fira Code", "Courier New", monospace;
+                --width: 740px;
+            }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
 
-body {
-  font-family: var(--font);
-  font-size: 14.5px;
-  line-height: 1.7;
-  color: var(--dark);
-  background: #fff;
-}
+            body {
+                font-family: var(--font);
+                font-size: 14.5px;
+                line-height: 1.7;
+                color: var(--dark);
+                background: #fff;
+            }
 
-/* ── Header ─────────────────────────────────────────────────────── */
-header { background: var(--dark); }
-.header-bar { height: 4px; background: var(--yellow); }
-.header-inner {
-  max-width: var(--width);
-  margin: 0 auto;
-  padding: 24px 40px 20px;
-}
-.logo { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--yellow); display: block; margin-bottom: 4px; }
-.doc-title { font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.84); display: block; }
-.doc-meta { max-width: var(--width); margin: 0 auto; padding: 0 40px 16px; font-size: 13px; color: rgba(255,255,255,0.7); }
+            /* ── Header ─────────────────────────────────────────────────────── */
+            header {
+                background: var(--dark);
+            }
+            .header-bar {
+                height: 4px;
+                background: var(--yellow);
+            }
+            .header-inner {
+                max-width: var(--width);
+                margin: 0 auto;
+                padding: 24px 40px 20px;
+            }
+            .logo {
+                font-size: 22px;
+                font-weight: 700;
+                letter-spacing: -0.5px;
+                color: var(--yellow);
+                display: block;
+                margin-bottom: 4px;
+            }
+            .doc-title {
+                font-size: 15px;
+                font-weight: 400;
+                color: rgba(255, 255, 255, 0.84);
+                display: block;
+            }
+            .doc-meta {
+                max-width: var(--width);
+                margin: 0 auto;
+                padding: 0 40px 16px;
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.7);
+            }
 
-/* ── Main ────────────────────────────────────────────────────────── */
-main { max-width: var(--width); margin: 48px auto 0; padding: 0 40px 60px; }
+            /* ── Main ────────────────────────────────────────────────────────── */
+            main {
+                max-width: var(--width);
+                margin: 48px auto 0;
+                padding: 0 40px 60px;
+            }
 
-/* ── Typography ─────────────────────────────────────────────────── */
-h1 { font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 12px; }
-h2 {
-  font-size: 17px; font-weight: 700;
-  margin-top: 52px; margin-bottom: 14px;
-  display: flex; align-items: center; gap: 10px;
-}
-h2::before { content: ''; display: inline-block; width: 3px; height: 1em; background: var(--yellow); flex-shrink: 0; }
-h3 { font-size: 14.5px; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
-p { margin-bottom: 14px; }
-a { color: #0b5fc6; text-underline-offset: 3px; }
-a:hover { color: #084a9a; }
-a:focus-visible {
-  outline: 3px solid var(--yellow);
-  outline-offset: 3px;
-  border-radius: 3px;
-}
-strong { font-weight: 600; }
-ul, ol { padding-left: 22px; margin-bottom: 14px; }
-li { margin-bottom: 5px; }
+            /* ── Typography ─────────────────────────────────────────────────── */
+            h1 {
+                font-size: 28px;
+                font-weight: 700;
+                line-height: 1.2;
+                letter-spacing: -0.5px;
+                margin-bottom: 12px;
+            }
+            h2 {
+                font-size: 17px;
+                font-weight: 700;
+                margin-top: 52px;
+                margin-bottom: 14px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            h2::before {
+                content: "";
+                display: inline-block;
+                width: 3px;
+                height: 1em;
+                background: var(--yellow);
+                flex-shrink: 0;
+            }
+            h3 {
+                font-size: 14.5px;
+                font-weight: 600;
+                margin-top: 24px;
+                margin-bottom: 8px;
+            }
+            p {
+                margin-bottom: 14px;
+            }
+            a {
+                color: inherit;
+                text-underline-offset: 3px;
+            }
 
-/* ── Code ────────────────────────────────────────────────────────── */
-code { font-family: var(--mono); font-size: 12px; background: var(--light); padding: 2px 6px; border-radius: 3px; }
-pre {
-  background: var(--dark); color: #E0E0E0;
-  padding: 16px 20px; border-radius: 4px;
-  overflow-x: auto; margin-bottom: 20px;
-  font-size: 12.5px; line-height: 1.6;
-}
-pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+            a:focus-visible {
+                outline: 3px solid var(--yellow);
+                outline-offset: 3px;
+                border-radius: 3px;
+            }
+            strong {
+                font-weight: 600;
+            }
+            ul,
+            ol {
+                padding-left: 22px;
+                margin-bottom: 14px;
+            }
+            li {
+                margin-bottom: 5px;
+            }
 
-/* ── Callouts ────────────────────────────────────────────────────── */
-.note, .warn, .tip {
-  padding: 12px 16px; margin-bottom: 18px;
-  font-size: 13.5px; line-height: 1.55;
-  border-radius: 0 3px 3px 0;
-}
-.note { background: #F0F6F8; border-left: 3px solid var(--teal); }
-.warn { background: #FFFBE0; border-left: 3px solid var(--yellow); }
-.tip  { background: #F0F8F0; border-left: 3px solid #4CAF50; }
+            /* ── Code ────────────────────────────────────────────────────────── */
+            code {
+                font-family: var(--mono);
+                font-size: 12px;
+                background: var(--light);
+                padding: 2px 6px;
+                border-radius: 3px;
+            }
+            pre {
+                background: var(--dark);
+                color: #e0e0e0;
+                padding: 16px 20px;
+                border-radius: 4px;
+                overflow-x: auto;
+                margin-bottom: 20px;
+                font-size: 12.5px;
+                line-height: 1.6;
+            }
+            pre code {
+                background: none;
+                padding: 0;
+                color: inherit;
+                font-size: inherit;
+            }
 
-hr { border: none; border-top: 1px solid #EBEBEB; margin: 48px 0; }
+            /* ── Callouts ────────────────────────────────────────────────────── */
+            .note,
+            .warn,
+            .tip {
+                padding: 12px 16px;
+                margin-bottom: 18px;
+                font-size: 13.5px;
+                line-height: 1.55;
+                border-radius: 0 3px 3px 0;
+            }
+            .note {
+                background: #f0f6f8;
+                border-left: 3px solid var(--teal);
+            }
+            .warn {
+                background: #fffbe0;
+                border-left: 3px solid var(--yellow);
+            }
+            .tip {
+                background: #f0f8f0;
+                border-left: 3px solid #4caf50;
+            }
 
-/* ── Eval table ─────────────────────────────────────────────────── */
-.eval-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-.eval-table th {
-  text-align: left; font-size: 12px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.5px;
-  color: #4f4f4f; padding: 8px 12px;
-  border-bottom: 2px solid var(--dark);
-}
-.eval-table td {
-  padding: 10px 12px; font-size: 13.5px;
-  border-bottom: 1px solid #F0F0F0;
-  vertical-align: top;
-}
-.eval-table td:first-child { font-weight: 600; white-space: nowrap; }
-.eval-table tr:last-child td { border-bottom: none; }
+            hr {
+                border: none;
+                border-top: 1px solid #ebebeb;
+                margin: 48px 0;
+            }
 
-/* ── Idea cards ─────────────────────────────────────────────────── */
-.idea-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 10px; margin-bottom: 20px;
-}
-.idea-card {
-  border: 1px solid #E8E8E8; border-radius: 4px;
-  padding: 14px 16px; font-size: 13.5px;
-}
-.idea-card strong { display: block; margin-bottom: 4px; font-size: 13px; }
-.idea-card p { margin: 0; color: #3f3f3f; font-size: 13px; }
+            /* ── Eval table ─────────────────────────────────────────────────── */
+            .eval-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            .eval-table th {
+                text-align: left;
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                color: #4f4f4f;
+                padding: 8px 12px;
+                border-bottom: 2px solid var(--dark);
+            }
+            .eval-table td {
+                padding: 10px 12px;
+                font-size: 13.5px;
+                border-bottom: 1px solid #f0f0f0;
+                vertical-align: top;
+            }
+            .eval-table td:first-child {
+                font-weight: 600;
+                white-space: nowrap;
+            }
+            .eval-table tr:last-child td {
+                border-bottom: none;
+            }
 
-/* ── Checklist ───────────────────────────────────────────────────── */
-.checklist { list-style: none; padding: 0; margin-bottom: 14px; }
-.checklist li {
-  padding: 5px 0 5px 26px;
-  position: relative;
-  border-bottom: 1px solid #F5F5F5;
-  font-size: 13.5px;
-}
-.checklist li:last-child { border-bottom: none; }
-.checklist li::before {
-  content: '→';
-  position: absolute; left: 4px;
-  color: var(--yellow); font-weight: 700;
-}
+            /* ── Idea cards ─────────────────────────────────────────────────── */
+            .idea-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+            .idea-card {
+                border: 1px solid #e8e8e8;
+                border-radius: 4px;
+                padding: 14px 16px;
+                font-size: 13.5px;
+            }
+            .idea-card strong {
+                display: block;
+                margin-bottom: 4px;
+                font-size: 13px;
+            }
+            .idea-card p {
+                margin: 0;
+                color: #3f3f3f;
+                font-size: 13px;
+            }
 
-/* ── Submit box ──────────────────────────────────────────────────── */
-.submit-box {
-  background: var(--dark); color: #fff;
-  border-radius: 4px; padding: 24px 28px;
-  margin-top: 32px;
-}
-.submit-box h3 { color: var(--yellow); margin-top: 0; margin-bottom: 12px; }
-.submit-box p { color: rgba(255,255,255,0.8); margin-bottom: 8px; }
-.submit-box .submit-detail { font-size: 13px; color: rgba(255,255,255,0.82); margin-top: 12px; }
+            /* ── Checklist ───────────────────────────────────────────────────── */
+            .checklist {
+                list-style: none;
+                padding: 0;
+                margin-bottom: 14px;
+            }
+            .checklist li {
+                padding: 5px 0 5px 26px;
+                position: relative;
+                border-bottom: 1px solid #f5f5f5;
+                font-size: 13.5px;
+            }
+            .checklist li:last-child {
+                border-bottom: none;
+            }
+            .checklist li::before {
+                content: "→";
+                position: absolute;
+                left: 4px;
+                color: var(--yellow);
+                font-weight: 700;
+            }
 
-/* ── API box ─────────────────────────────────────────────────────── */
-.api-box {
-  border: 1px solid #DCDCDC; border-radius: 4px;
-  overflow: hidden; margin-bottom: 24px;
-}
-.api-box-header {
-  background: var(--dark); color: #fff;
-  padding: 11px 20px; font-size: 13px; font-weight: 700;
-  display: flex; align-items: center; gap: 10px;
-}
-.api-method {
-  background: var(--yellow); color: var(--dark);
-  font-size: 12px; font-weight: 700; padding: 2px 8px;
-  border-radius: 2px; letter-spacing: 0.3px;
-}
-.api-box-body { padding: 16px 20px; }
-.api-box-body p { font-size: 13.5px; }
-.api-box-body p:last-child { margin-bottom: 0; }
+            /* ── Submit box ──────────────────────────────────────────────────── */
+            .submit-box {
+                background: var(--dark);
+                color: #fff;
+                border-radius: 4px;
+                padding: 24px 28px;
+                margin-top: 32px;
+            }
+            .submit-box h3 {
+                color: var(--yellow);
+                margin-top: 0;
+                margin-bottom: 12px;
+            }
+            .submit-box p {
+                color: rgba(255, 255, 255, 0.8);
+                margin-bottom: 8px;
+            }
+            .submit-box .submit-detail {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.82);
+                margin-top: 12px;
+            }
 
-/* ── Footer ──────────────────────────────────────────────────────── */
-footer {
-  max-width: var(--width); margin: 48px auto 40px;
-  padding: 16px 40px 0; border-top: 1px solid #EBEBEB;
-  font-size: 13px; color: #555;
-  display: flex; justify-content: space-between;
-}
-.footer-brand { font-weight: 700; color: var(--dark); }
+            /* ── API box ─────────────────────────────────────────────────────── */
+            .api-box {
+                border: 1px solid #dcdcdc;
+                border-radius: 4px;
+                overflow: hidden;
+                margin-bottom: 24px;
+            }
+            .api-box-header {
+                background: var(--dark);
+                color: #fff;
+                padding: 11px 20px;
+                font-size: 13px;
+                font-weight: 700;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .api-method {
+                background: var(--yellow);
+                color: var(--dark);
+                font-size: 12px;
+                font-weight: 700;
+                padding: 2px 8px;
+                border-radius: 2px;
+                letter-spacing: 0.3px;
+            }
+            .api-box-body {
+                padding: 16px 20px;
+            }
+            .api-box-body p {
+                font-size: 13.5px;
+            }
+            .api-box-body p:last-child {
+                margin-bottom: 0;
+            }
 
-/* ── Print ───────────────────────────────────────────────────────── */
-@media print {
-  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-  @page { size: A4; margin: 14mm 18mm; }
-  body { font-size: 13px; }
-  main { max-width: 100%; margin: 0; padding: 0 0 40px; }
-  h2, h3 { break-after: avoid; }
-  .submit-box { break-inside: avoid; }
-  .idea-grid { break-inside: avoid; }
-  pre { border: 1px solid #ddd; color: var(--dark); background: var(--light); }
-}
-</style>
-</head>
-<body>
+            /* ── Footer ──────────────────────────────────────────────────────── */
+            footer {
+                max-width: var(--width);
+                margin: 48px auto 40px;
+                padding: 16px 40px 0;
+                border-top: 1px solid #ebebeb;
+                font-size: 13px;
+                color: #555;
+                display: flex;
+                justify-content: space-between;
+            }
+            .footer-brand {
+                font-weight: 700;
+                color: var(--dark);
+            }
 
-<header>
-  <div class="header-bar"></div>
-  <div class="header-inner">
-    <span class="logo">InPost</span>
-    <span class="doc-title">Software Development Internship — Technical Assignment</span>
-  </div>
-  <div class="doc-meta">InPost Technology &middot; 2026</div>
-</header>
+            /* ── Print ───────────────────────────────────────────────────────── */
+            @media print {
+                * {
+                    -webkit-print-color-adjust: exact !important;
+                    print-color-adjust: exact !important;
+                }
+                @page {
+                    size: A4;
+                    margin: 14mm 18mm;
+                }
+                body {
+                    font-size: 13px;
+                }
+                main {
+                    max-width: 100%;
+                    margin: 0;
+                    padding: 0 0 40px;
+                }
+                h2,
+                h3 {
+                    break-after: avoid;
+                }
+                .submit-box {
+                    break-inside: avoid;
+                }
+                .idea-grid {
+                    break-inside: avoid;
+                }
+                pre {
+                    border: 1px solid #ddd;
+                    color: var(--dark);
+                    background: var(--light);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-bar"></div>
+            <div class="header-inner">
+                <span class="logo">InPost</span>
+                <span class="doc-title"
+                    >Software Development Internship — Technical
+                    Assignment</span
+                >
+            </div>
+            <div class="doc-meta">InPost Technology &middot; 2026</div>
+        </header>
 
-<main>
+        <main>
+            <h1>Developer Technical Assignment</h1>
+            <p style="font-size: 15px; color: #444; margin-bottom: 6px">
+                We'd love to get to know you better — not just your coding
+                skills, but also how you think, communicate, and approach
+                problems that don't come with a step-by-step manual.
+            </p>
+            <p style="font-size: 13.5px; color: #555">
+                There's no single correct solution. We want to see
+                <strong>your</strong> interpretation, your decisions, and your
+                ability to deliver something that works and makes sense.
+            </p>
 
-<h1>Developer Technical Assignment</h1>
-<p style="font-size:15px; color:#444; margin-bottom:6px;">We'd love to get to know you better — not just your coding skills, but also how you think, communicate, and approach problems that don't come with a step-by-step manual.</p>
-<p style="font-size:13.5px; color:#555;">There's no single correct solution. We want to see <strong>your</strong> interpretation, your decisions, and your ability to deliver something that works and makes sense.</p>
+            <div class="tip">
+                <strong>AI tools are fully allowed</strong> — ChatGPT, Claude,
+                Copilot, Cursor, anything you use day to day. But if an AI wrote
+                your code, you should understand every line of it and be able to
+                explain your decisions. We may ask.
+            </div>
 
-<div class="tip"><strong>AI tools are fully allowed</strong> — ChatGPT, Claude, Copilot, Cursor, anything you use day to day. But if an AI wrote your code, you should understand every line of it and be able to explain your decisions. We may ask.</div>
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <h2>The Task</h2>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2>The Task</h2>
+            <p>
+                InPost operates a network of over 90,000 parcel pick-up points
+                across Europe. Data about every single one of them is available
+                through a REST API:
+            </p>
 
-<p>InPost operates a network of over 90,000 parcel pick-up points across Europe. Data about every single one of them is available through a REST API:</p>
+            <div class="api-box">
+                <div class="api-box-header">
+                    <span class="api-method">GET</span>
+                    <code
+                        style="
+                            background: none;
+                            color: #e0e0e0;
+                            font-size: 13px;
+                        "
+                        >https://api-global-points.easypack24.net/v1/points</code
+                    >
+                </div>
+                <div class="api-box-body">
+                    <p>
+                        Returns a paginated list of all InPost points across
+                        Europe — including location coordinates, address
+                        details, available functions, operating hours, locker
+                        availability, and more.
+                    </p>
+                    <p style="color: #555">
+                        Explore the API yourself. The shape of the data should
+                        inform what you build.
+                    </p>
+                </div>
+            </div>
 
-<div class="api-box">
-  <div class="api-box-header">
-    <span class="api-method">GET</span>
-    <code style="background:none; color:#E0E0E0; font-size:13px;">https://api-global-points.easypack24.net/v1/points</code>
-  </div>
-  <div class="api-box-body">
-    <p>Returns a paginated list of all InPost points across Europe — including location coordinates, address details, available functions, operating hours, locker availability, and more.</p>
-    <p style="color:#555;">Explore the API yourself. The shape of the data should inform what you build.</p>
-  </div>
-</div>
+            <p style="font-size: 16px; font-weight: 700; margin-bottom: 8px">
+                Using this API as your primary data source, build something
+                useful.
+            </p>
+            <p>That's it. The rest is up to you.</p>
 
-<p style="font-size:16px; font-weight:700; margin-bottom:8px;">Using this API as your primary data source, build something useful.</p>
-<p>That's it. The rest is up to you.</p>
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <h2>What we mean by "something useful"</h2>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2>What we mean by "something useful"</h2>
+            <p>
+                This could be a backend service, a CLI tool, a data pipeline, an
+                analytics module, a web application, or anything else you find
+                interesting. Here are a few directions to inspire you — pick
+                one, combine several, or ignore them entirely:
+            </p>
 
-<p>This could be a backend service, a CLI tool, a data pipeline, an analytics module, a web application, or anything else you find interesting. Here are a few directions to inspire you — pick one, combine several, or ignore them entirely:</p>
+            <div class="idea-grid">
+                <div class="idea-card">
+                    <strong>🔍 Smart finder</strong>
+                    <p>
+                        Help users find the best parcel locker for their needs
+                        based on various criteria
+                    </p>
+                </div>
+                <div class="idea-card">
+                    <strong>📊 Distribution analysis</strong>
+                    <p>
+                        Analyze the density and coverage of parcel lockers
+                        across regions
+                    </p>
+                </div>
+                <div class="idea-card">
+                    <strong>📡 Status monitor</strong>
+                    <p>
+                        Track and report on locker availability and operational
+                        status
+                    </p>
+                </div>
+                <div class="idea-card">
+                    <strong>🔧 API enrichment</strong>
+                    <p>
+                        Wrap, reshape, or aggregate the data into something more
+                        useful
+                    </p>
+                </div>
+                <div class="idea-card">
+                    <strong>🗺️ Personal problem</strong>
+                    <p>
+                        Solve a problem you personally experienced when using
+                        parcel lockers
+                    </p>
+                </div>
+                <div class="idea-card">
+                    <strong>💡 Your own idea</strong>
+                    <p>Something we haven't thought of — surprise us</p>
+                </div>
+            </div>
 
-<div class="idea-grid">
-  <div class="idea-card">
-    <strong>🔍 Smart finder</strong>
-    <p>Help users find the best parcel locker for their needs based on various criteria</p>
-  </div>
-  <div class="idea-card">
-    <strong>📊 Distribution analysis</strong>
-    <p>Analyze the density and coverage of parcel lockers across regions</p>
-  </div>
-  <div class="idea-card">
-    <strong>📡 Status monitor</strong>
-    <p>Track and report on locker availability and operational status</p>
-  </div>
-  <div class="idea-card">
-    <strong>🔧 API enrichment</strong>
-    <p>Wrap, reshape, or aggregate the data into something more useful</p>
-  </div>
-  <div class="idea-card">
-    <strong>🗺️ Personal problem</strong>
-    <p>Solve a problem you personally experienced when using parcel lockers</p>
-  </div>
-  <div class="idea-card">
-    <strong>💡 Your own idea</strong>
-    <p>Something we haven't thought of — surprise us</p>
-  </div>
-</div>
+            <div class="warn">
+                <strong>We value quality over quantity.</strong> A
+                well-designed, well-tested solution to a small, clearly defined
+                problem will always beat a shallow attempt to do everything.
+                Show us that you can make deliberate choices about what to build
+                — and what to leave out.
+            </div>
 
-<div class="warn"><strong>We value quality over quantity.</strong> A well-designed, well-tested solution to a small, clearly defined problem will always beat a shallow attempt to do everything. Show us that you can make deliberate choices about what to build — and what to leave out.</div>
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <h2>Requirements</h2>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2>Requirements</h2>
+            <ol>
+                <li>
+                    <strong
+                        >Use any programming language and tech stack you're
+                        comfortable with.</strong
+                    >
+                    Pick whatever lets you show your best work.
+                </li>
+                <li>
+                    <strong
+                        >Your solution must actually interact with the InPost
+                        API</strong
+                    >
+                    — fetch real data, process it, do something meaningful with
+                    it.
+                </li>
+                <li>
+                    <strong
+                        >Publish your code in a public GitHub
+                        repository.</strong
+                    >
+                    The repo should contain everything needed to build and run
+                    your solution.
+                </li>
+                <li>
+                    <strong
+                        >Fill in the
+                        <a href="../readme-template/README.md"
+                            ><code>README.md</code> template</a
+                        ></strong
+                    >
+                    and include it the root directory of Github repository with
+                    your solution. It's your main way of communicating with us —
+                    treat it as a conversation, not a formality. Fill all
+                    provided sections but if you want to share more information,
+                    don't hesitate to add more.
+                </li>
+                <li>
+                    <strong>Send us the link to your repository</strong> until 6
+                    May (end of the day).
+                </li>
+            </ol>
 
-<ol>
-  <li><strong>Use any programming language and tech stack you're comfortable with.</strong> Pick whatever lets you show your best work.</li>
-  <li><strong>Your solution must actually interact with the InPost API</strong> — fetch real data, process it, do something meaningful with it.</li>
-  <li><strong>Publish your code in a public GitHub repository.</strong> The repo should contain everything needed to build and run your solution.</li>
-  <li><strong>Fill in the <a href="../readme-template/README.md"><code>README.md</code> template</a></strong> and include it the root directory of Github repository with your solution. It's your main way of communicating with us — treat it as a conversation, not a formality. Fill all provided sections but if you want to share more information, don't hesitate to add more.</li>
-  <li><strong>Send us the link to your repository</strong> until 6 May (end of the day).</li>
-</ol>
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <h2>What we're looking for</h2>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2>What we're looking for</h2>
+            <p>
+                We'll be reading your code <strong>and</strong> your
+                <code>README.md</code>. Here's what matters to us:
+            </p>
 
-<p>We'll be reading your code <strong>and</strong> your <code>README.md</code>. Here's what matters to us:</p>
+            <table class="eval-table">
+                <thead>
+                    <tr>
+                        <th>What</th>
+                        <th>Why</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clear thinking &amp; communication</td>
+                        <td>
+                            Can you explain what you built and why? Is your
+                            README.md a pleasure to read?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Problem definition</td>
+                        <td>
+                            The task is intentionally vague. How you narrow it
+                            down into a concrete, solvable problem matters more
+                            than what you pick.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Working software</td>
+                        <td>
+                            It should build. It should run. It should do what
+                            your README.md says it does.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Code quality</td>
+                        <td>
+                            Clean, readable, idiomatic code. Reasonable project
+                            structure. Meaningful names.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Technical decisions</td>
+                        <td>
+                            Did you make deliberate choices about architecture,
+                            libraries, data handling, error cases? Can you
+                            justify them?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Testing</td>
+                        <td>
+                            Tests are not required, but if you provide any way
+                            of automated testing, it is a nice bonus.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Creativity &amp; initiative</td>
+                        <td>
+                            Did you go beyond the minimum? Surprise us. Show us
+                            something we didn't expect.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-<table class="eval-table">
-  <thead>
-    <tr><th>What</th><th>Why</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Clear thinking &amp; communication</td><td>Can you explain what you built and why? Is your README.md a pleasure to read?</td></tr>
-    <tr><td>Problem definition</td><td>The task is intentionally vague. How you narrow it down into a concrete, solvable problem matters more than what you pick.</td></tr>
-    <tr><td>Working software</td><td>It should build. It should run. It should do what your README.md says it does.</td></tr>
-    <tr><td>Code quality</td><td>Clean, readable, idiomatic code. Reasonable project structure. Meaningful names.</td></tr>
-    <tr><td>Technical decisions</td><td>Did you make deliberate choices about architecture, libraries, data handling, error cases? Can you justify them?</td></tr>
-    <tr><td>Testing</td><td>Tests are not required, but if you provide any way of automated testing, it is a nice bonus.</td></tr>
-    <tr><td>Creativity &amp; initiative</td><td>Did you go beyond the minimum? Surprise us. Show us something we didn't expect.</td></tr>
-  </tbody>
-</table>
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <h2>A few tips</h2>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2>A few tips</h2>
+            <ul class="checklist">
+                <li>
+                    <strong>Start with the API.</strong> Explore it. Understand
+                    the data. The shape of the data should inform what you
+                    build.
+                </li>
+                <li>
+                    <strong>Scope wisely.</strong> You don't need to use every
+                    field from the API. Pick a focused slice and do it well.
+                </li>
+                <li>
+                    <strong>Don't over-engineer.</strong> A clean, simple
+                    solution that works is better than an over-abstracted one
+                    that doesn't.
+                </li>
+                <li>
+                    <strong>Have fun with it.</strong> This task is designed to
+                    give you space to be creative. Use it.
+                </li>
+            </ul>
 
-<ul class="checklist">
-  <li><strong>Start with the API.</strong> Explore it. Understand the data. The shape of the data should inform what you build.</li>
-  <li><strong>Scope wisely.</strong> You don't need to use every field from the API. Pick a focused slice and do it well.</li>
-  <li><strong>Don't over-engineer.</strong> A clean, simple solution that works is better than an over-abstracted one that doesn't.</li>
-  <li><strong>Have fun with it.</strong> This task is designed to give you space to be creative. Use it.</li>
-</ul>
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <h2>FAQ</h2>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<h2>FAQ</h2>
+            <h3>Can I use external libraries / frameworks?</h3>
+            <p>Yes, absolutely. Just make sure your build instructions work.</p>
 
-<h3>Can I use external libraries / frameworks?</h3>
-<p>Yes, absolutely. Just make sure your build instructions work.</p>
+            <h3>Do I need to deploy it somewhere?</h3>
+            <p>
+                It is not necessary, but if you do deploy it, that's a nice
+                bonus. If you don't deploy, make sure to include screenshots, a
+                short video, or example outputs in your
+                <code>README.md</code> so we can see how your solution works.
+            </p>
 
-<h3>Do I need to deploy it somewhere?</h3>
-<p>It is not necessary, but if you do deploy it, that's a nice bonus. If you don't deploy, make sure to include screenshots, a short video, or example outputs in your <code>README.md</code> so we can see how your solution works.</p>
+            <h3>Can I ask questions?</h3>
+            <p>
+                The intentional ambiguity is part of the exercise. Make
+                reasonable assumptions, document them in your
+                <code>README.md</code>, and move forward. Figuring out what
+                needs clarification is part of the task.
+            </p>
 
-<h3>Can I ask questions?</h3>
-<p>The intentional ambiguity is part of the exercise. Make reasonable assumptions, document them in your <code>README.md</code>, and move forward. Figuring out what needs clarification is part of the task.</p>
+            <!-- ═══════════════════════════════════════════════════════════════ -->
+            <hr />
+            <h2>Submit your work</h2>
 
-<!-- ═══════════════════════════════════════════════════════════════ -->
-<hr>
-<h2>Submit your work</h2>
+            <p>When you're done, make sure your repository contains:</p>
+            <ul class="checklist">
+                <li>
+                    Your source code — buildable and runnable from the
+                    instructions in README.md
+                </li>
+                <li>
+                    <code>README.md</code> — filled in with all the details
+                    about your solution
+                </li>
+                <li>
+                    Screenshots, recordings, or a deployment link so we can see
+                    your solution in action
+                </li>
+            </ul>
 
-<p>When you're done, make sure your repository contains:</p>
-<ul class="checklist">
-  <li>Your source code — buildable and runnable from the instructions in README.md</li>
-  <li><code>README.md</code> — filled in with all the details about your solution</li>
-  <li>Screenshots, recordings, or a deployment link so we can see your solution in action</li>
-</ul>
+            <div class="submit-box">
+                <h3>Submit your repository GitHub link</h3>
+                <p>
+                    Send the URL of your repository using
+                    <a href="https://forms.office.com/e/66eiACnMCz"
+                        ><strong>the submission form</strong></a
+                    >.
+                </p>
 
-<div class="submit-box">
-  <h3>Submit your repository GitHub link</h3>
-  <p>Send the URL of your repository to:</p>
-  <p><strong style="font-size:15px; color:#fff;">[SUBMISSION EMAIL / FORM — TO BE ADDED]</strong></p>
-  <p class="submit-detail">Deadline: <strong style="color:rgba(255,255,255,0.7);">6 May (end of the day)</strong></p>
-  <p class="submit-detail" style="margin-top:8px;">Make sure the repository is <strong>Public</strong> so we can access it.</p>
-</div>
+                <p class="submit-detail">
+                    Deadline:
+                    <strong style="color: rgba(255, 255, 255, 0.7)"
+                        >6 May (end of the day)</strong
+                    >
+                </p>
+                <p class="submit-detail" style="margin-top: 8px">
+                    Make sure the repository is <strong>Public</strong> so we
+                    can access it.
+                </p>
+            </div>
 
-<hr>
-<p style="color:#555; font-size:13.5px;">Good luck — we're looking forward to seeing what you come up with.</p>
+            <hr />
+            <p style="color: #555; font-size: 13.5px">
+                Good luck — we're looking forward to seeing what you come up
+                with.
+            </p>
+        </main>
 
-</main>
-
-<footer>
-  <span class="footer-brand">InPost Technology</span>
-  <span>Software Development Internship Assignment &middot; 2026</span>
-</footer>
-
-</body>
+        <footer>
+            <span class="footer-brand">InPost Technology</span>
+            <span
+                >Software Development Internship Assignment &middot; 2026</span
+            >
+        </footer>
+    </body>
 </html>
